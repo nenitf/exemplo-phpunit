@@ -7,3 +7,12 @@
 - Para atualizar dependências do `composer.json` use `composer require <projeto>/<projeto>`
 - Para instalar dependências do `composer.json` use ``composer install`` e em produção ``composer install --no-dev``
 - O autoload do composer pode ser setado conforme exemplificado com o namespace ``App`` desse projeto em `compose.json`
+- ``composer self-update`` atualiza o composer
+
+## Linux
+- instalar: 
+```
+sudo curl -s https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+```
+- desinstalar: ``sudo rm -f /usr/local/bin/composer``
