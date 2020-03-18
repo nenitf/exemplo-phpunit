@@ -12,7 +12,8 @@
 ## Linux
 - instalar: 
 ```
-sudo curl -s https://getcomposer.org/installer | php
-sudo mv composer.phar /usr/local/bin/composer
+sudo su
+curl -s https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
 ```
 - desinstalar: ``sudo rm -f /usr/local/bin/composer``
