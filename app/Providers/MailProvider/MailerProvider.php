@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Models;
-
-use App\Models\IMailProvider;
+namespace App\Providers\MailProvider;
 
 class MailerProvider implements IMailProvider{
-    function send($titulo){
+    function send($destinatarios, $titulo, $template, $vars){
         print_r("Email com o titulo {$titulo} enviado!");
     }
 }
