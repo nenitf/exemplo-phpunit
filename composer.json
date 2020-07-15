@@ -1,6 +1,7 @@
 {
     "scripts": {
-        "phpunit": "phpunit --testdox",
+        "phpunit": "php composer-test.php",
+        "phpunit-testdox": "php composer-test.php --testdox",
         "kahlan": "kahlan"
     },
     "autoload": {

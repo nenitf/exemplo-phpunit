@@ -6,7 +6,7 @@ class QuadradoTest extends PHPUnit\Framework\TestCase{
     /**
      * @dataProvider collectionAreas
      */
-    public function testArea(int $lado1, int $lado2, int $expectedArea)
+    public function testShouldCalculateTheArea(int $lado1, int $lado2, int $expectedArea)
     {
         $quadrado = new Quadrado($lado1, $lado2);
         $area = $quadrado->getArea();
