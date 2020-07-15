@@ -1,21 +1,11 @@
 <?php
 
-use App\Services\CreateUserService;
-use App\Providers\HashProvider\BCryptProvider;
-use App\Providers\MailProvider\MailerProvider;
-use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use App\Services\CreateUserService1;
 
 use Mockery as m;
 
-class CreateUserServiceTest extends PHPUnit\Framework\TestCase {
-    use MockeryPHPUnitIntegration;
-    /*
-        // builtin phpunit
-        // $stub = $this->createMock(MailerProvider::class);
-        // $stub->method('send')->willReturn('foo');
-     */
-
-    public function testShouldCreateANewUser(){
+describe("CreateUserService1", function() {
+    it("should create a new user", function() {
         $userTest = [
             'name' => 'Felipe',
             'email' => 'felipe.silva@mail.com',
@@ -31,20 +21,53 @@ class CreateUserServiceTest extends PHPUnit\Framework\TestCase {
 
         $mockHashProvider = m::mock('App\Providers\HashProvider\IHashProvider');
         $mockHashProvider->shouldReceive('generateHash')
-                     ->with($userTest['password'])
-                     ->andReturn('hashedPassword');
+                         ->with($userTest['password'])
+                         ->andReturn('hashedPassword');
 
         $mockMailProvider = m::mock('App\Providers\MailProvider\IMailProvider');
         $mockMailProvider->shouldReceive('send')
                          ->with($userTest['email'], 'exemplo de subject', 'account created', ['name' => $userTest['name']]);
 
-        $service = new CreateUserService($mockMailProvider, $mockHashProvider);
+        $service = new CreateUserService1($mockMailProvider, $mockHashProvider);
         $newUser = $service->execute($userTest['name'], $userTest['email'], $userTest['password']);
 
-        $this->assertEquals(true, $newUser);
-    }
+        expect(true)->toBe($newUser);
 
-    public function testShouldNotCreateANewUserWithEmailDuplicated(){
+        // fechar definição de overload
+        m::close();
+    });
+
+    it("should not create a new user with duplicated email", function() {
+        $userTest = [
+            'name' => 'Felipe',
+            'email' => 'felipe.silva@mail.com',
+            'password' => '123456'
+        ];
+
+        // dependência interna fixa
+        $mockUser = allow('App\Models\User');
+        $mockUser->toReceive('where')
+                 ->with('email', $userTest['email'])
+                 ->andReturn([
+                     'name' => 'Eduardo',
+                     'email' => 'felipe.silva@mail.com',
+                 ]);
+
+        // mocks inuteis pois o teste falha antes deles
+        $mockHashProvider = allow('App\Providers\HashProvider\IHashProvider');
+        $mockMailProvider = allow('App\Providers\MailProvider\IMailProvider');
+
+        $service = new CreateUserService1($mockMailProvider, $mockHashProvider);
+        try {
+            $newUser = $service->execute($userTest['name'], $userTest['email'], $userTest['password']);
+        } catch (\Exception $e) {
+            $emess = $e->getMessage();
+            expect($emess)->toBe('Email existente');
+        }
+    });
+
+    /* mockery
+    it("should not create a new user with duplicated email", function() {
         $userTest = [
             'name' => 'Felipe',
             'email' => 'felipe.silva@mail.com',
@@ -64,17 +87,17 @@ class CreateUserServiceTest extends PHPUnit\Framework\TestCase {
         $mockHashProvider = m::mock('App\Providers\HashProvider\IHashProvider');
         $mockMailProvider = m::mock('App\Providers\MailProvider\IMailProvider');
 
-        $service = new CreateUserService($mockMailProvider, $mockHashProvider);
-
+        $service = new CreateUserService1($mockMailProvider, $mockHashProvider);
         try {
             $newUser = $service->execute($userTest['name'], $userTest['email'], $userTest['password']);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $emess = $e->getMessage();
-            $this->assertEquals($emess, 'Email existente');
+            expect($emess)->toBe('Email existente');
         }
 
         // fechar definição de overload
         m::close();
-    }
-}
+    });
+     */
+});
 

@@ -6,7 +6,7 @@ use App\Providers\MailProvider\IMailProvider;
 use App\Providers\HashProvider\IHashProvider;
 use App\Models\User;
 
-class CreateUserService {
+class CreateUserService1 {
     private $mailProvider;
     private $hashProvider;
 

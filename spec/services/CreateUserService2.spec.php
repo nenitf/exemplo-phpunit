@@ -1,13 +1,10 @@
 <?php
 
-use App\Services\CreateUserService;
-use App\Providers\HashProvider\BCryptProvider;
-use App\Providers\MailProvider\MailerProvider;
-use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use App\Services\CreateUserService2;
 
 use Mockery as m;
 
-describe("CreateUserService", function() {
+describe("CreateUserService2", function() {
     it("should create a new user", function() {
         $userTest = [
             'name' => 'Felipe',
@@ -15,12 +12,11 @@ describe("CreateUserService", function() {
             'password' => '123456'
         ];
 
-        // dependência interna fixa
-        $mockUser = m::mock('overload:App\Models\User');
-        $mockUser->shouldReceive('where')
+        $mockUsersRepository = m::mock('App\Repositories\UsersRepository');
+        $mockUsersRepository->shouldReceive('where')
                  ->with('email', $userTest['email'])
                  ->andReturn(null);
-        $mockUser->shouldReceive('save');
+        $mockUsersRepository->shouldReceive('save');
 
         $mockHashProvider = m::mock('App\Providers\HashProvider\IHashProvider');
         $mockHashProvider->shouldReceive('generateHash')
@@ -31,7 +27,7 @@ describe("CreateUserService", function() {
         $mockMailProvider->shouldReceive('send')
                          ->with($userTest['email'], 'exemplo de subject', 'account created', ['name' => $userTest['name']]);
 
-        $service = new CreateUserService($mockMailProvider, $mockHashProvider);
+        $service = new CreateUserService2($mockMailProvider, $mockHashProvider, $mockUsersRepository);
         $newUser = $service->execute($userTest['name'], $userTest['email'], $userTest['password']);
 
         expect(true)->toBe($newUser);
@@ -47,9 +43,8 @@ describe("CreateUserService", function() {
             'password' => '123456'
         ];
 
-        // dependência interna fixa
-        $mockUser = m::mock('overload:App\Models\User');
-        $mockUser->shouldReceive('where')
+        $mockUsersRepository = m::mock('App\Repositories\UsersRepository');
+        $$mockUsersRepository->shouldReceive('where')
                  ->with('email', $userTest['email'])
                  ->andReturn([
                      'name' => 'Eduardo',
@@ -60,7 +55,7 @@ describe("CreateUserService", function() {
         $mockHashProvider = m::mock('App\Providers\HashProvider\IHashProvider');
         $mockMailProvider = m::mock('App\Providers\MailProvider\IMailProvider');
 
-        $service = new CreateUserService($mockMailProvider, $mockHashProvider);
+        $service = new CreateUserService2($mockMailProvider, $mockHashProvider, $mockUsersRepository);
         try {
             $newUser = $service->execute($userTest['name'], $userTest['email'], $userTest['password']);
         } catch (\Exception $e) {
