@@ -19,11 +19,14 @@ composer require
 composer test
 #composer test tests/folder
 #composer test tests/folder/ClasseTest.php
+#composer test -- --group groupname
+
 
 # com output testdox (criando frases a partir de camelCase)
 composer test:dox
 #composer test:dox tests/folder
 #composer test:dox tests/folder/ClasseTest.php
+#composer test:dox -- --group groupname
 
 # com log do resultado para um arquivo
 composer test:log:html # cria em testdox/phpunit-testdox.html
