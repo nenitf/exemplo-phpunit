@@ -3,6 +3,9 @@
 use App\Services\CreateUserService2;
 
 class CreateUserService2Test extends PHPUnit\Framework\TestCase {
+    /**
+     * @group caso-de-uso
+     */
     public function testShouldCreateANewUser(){
         $userTest = [
             'name' => 'Felipe',
@@ -51,6 +54,9 @@ class CreateUserService2Test extends PHPUnit\Framework\TestCase {
         );
     }
 
+    /**
+     * @group caso-de-uso
+     */
     public function testShouldNotCreateANewUserWithEmailDuplicated(){
         /** arrange */
         $userTest = [

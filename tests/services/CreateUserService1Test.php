@@ -13,6 +13,9 @@ class CreateUserService1Test extends PHPUnit\Framework\TestCase {
         // $stub->method('send')->willReturn('foo');
      */
 
+    /**
+     * @group caso-de-uso
+     */
     public function testShouldNotCreateANewUserWithEmailDuplicatedMockery(){
         $this->markTestSkipped('Mockery afeta outros testes além desse');
         $userTest = [
