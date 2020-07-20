@@ -7,11 +7,6 @@ use Mockery as m;
 
 class CreateUserService1Test extends PHPUnit\Framework\TestCase {
     use MockeryPHPUnitIntegration;
-    /*
-        // builtin phpunit
-        // $stub = $this->createMock(MailerProvider::class);
-        // $stub->method('send')->willReturn('foo');
-     */
 
     /**
      * @group caso-de-uso
