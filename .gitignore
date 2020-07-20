@@ -1,3 +1,6 @@
 vendor
+tags
 .phpunit.*
 composer.lock
+.ctags
+testdox

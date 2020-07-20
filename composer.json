@@ -1,8 +1,13 @@
 {
     "scripts": {
-        "phpunit": "php composer-test.php",
-        "phpunit-testdox": "php composer-test.php --testdox",
-        "kahlan": "kahlan"
+        "test": "php composer-test.php",
+        "test:dox": "php composer-test.php --testdox",
+        "test:log:html": "php composer-test.php --testdox-html testdox/phpunit-testdox.html",
+        "test:log:txt": "php composer-test.php --testdox-text testdox/phpunit-testdox.txt",
+        "test:log:xml": "php composer-test.php --testdox-xml testdox/phpunit-testdox.xml",
+        "test:log:cdu:html": "php composer-test.php --testdox-html testdox/phpunit-testdox-cdu.html --group caso-de-uso",
+        "test:log:cdu:txt": "php composer-test.php --testdox-text testdox/phpunit-testdox-cdu.txt --group caso-de-uso",
+        "test:log:cdu:xml": "php composer-test.php --testdox-xml testdox/phpunit-testdox-cdu.xml --group caso-de-uso"
     },
     "autoload": {
         "psr-4":{
@@ -10,8 +15,7 @@
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.5",
-        "kahlan/kahlan": "^4.7"
+        "phpunit/phpunit": "^8.5"
     },
     "require": {
         "mockery/mockery": "^1.4"
