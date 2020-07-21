@@ -13,6 +13,7 @@
     stopOnRisky="false"
     beStrictAboutTestsThatDoNotTestAnything="true"
     beStrictAboutTodoAnnotatedTests="true"
+    processIsolation ="false"
     >
 
     <!-- beStrictAboutTestsThatDoNotTestAnything="true" para marcar testes sem asserts como riscos -->
