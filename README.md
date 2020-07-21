@@ -20,6 +20,7 @@ composer test
 #composer test tests/folder
 #composer test tests/folder/ClasseTest.php
 #composer test -- --group groupname
+#composer test -- --group issue-number # marcado com @ticket
 
 
 # com output testdox (criando frases a partir de camelCase)
@@ -27,6 +28,7 @@ composer test:dox
 #composer test:dox tests/folder
 #composer test:dox tests/folder/ClasseTest.php
 #composer test:dox -- --group groupname
+#composer test:dox -- --group issue-number # marcado com @ticket
 
 # com log do resultado para um arquivo
 composer test:log:html # cria em testdox/phpunit-testdox.html
@@ -63,3 +65,4 @@ Siga os passos abaixo em ordem, mas caso esteja iniciando um projeto utilize pri
 * [behat](https://docs.behat.org/en/latest/quick_start.html)
 * [phpspec](http://www.phpspec.net/en/stable/)
 
+<!-- vim: set nospell: -->
