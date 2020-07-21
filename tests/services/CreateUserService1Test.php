@@ -16,6 +16,7 @@ class CreateUserService1Test extends PHPUnit\Framework\TestCase {
      * @todo Implementa x
      *
      * @runInSeparateProcess
+     * @preserveGlobalState disabled
      * O Mockery afeta globalmente os testes (estático), portanto deve ser
      * rodados em um processo separado...
      * A anotação poderia ser evitada com processIsolation="true" no
