@@ -2,9 +2,13 @@
 
 use App\Services\CreateUserService2;
 
+/**
+ * @testdox Criação do usuario
+ */
 class CreateUserService2Test extends PHPUnit\Framework\TestCase {
     /**
      * @group caso-de-uso
+     * @ticket 150
      */
     public function testShouldCreateANewUser(){
         $userTest = [
@@ -56,6 +60,7 @@ class CreateUserService2Test extends PHPUnit\Framework\TestCase {
 
     /**
      * @group caso-de-uso
+     * @ticket 150
      */
     public function testShouldNotCreateANewUserWithEmailDuplicated(){
         /** arrange */

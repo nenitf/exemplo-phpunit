@@ -5,6 +5,9 @@ use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 
 use Mockery as m;
 
+/**
+ * @testdox Criação do usuario com dependências internas
+ */
 class CreateUserService1Test extends PHPUnit\Framework\TestCase {
     use MockeryPHPUnitIntegration;
 
