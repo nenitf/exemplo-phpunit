@@ -13,9 +13,18 @@ class CreateUserService1Test extends PHPUnit\Framework\TestCase {
 
     /**
      * @group caso-de-uso
+     * @todo Implementa x
+     *
+     * @runInSeparateProcess
+     * O Mockery afeta globalmente os testes (estático), portanto deve ser
+     * rodados em um processo separado...
+     * A anotação poderia ser evitada com processIsolation="true" no
+     * phpunit.xml, porém rodar todos os testes em processos distintos afeta
+     * performance
      */
     public function testShouldNotCreateANewUserWithEmailDuplicatedMockery(){
-        $this->markTestSkipped('Mockery afeta outros testes além desse');
+        // $this->markTestIncomplete('Mockery afeta outros testes além desse');
+        // $this->markTestSkipped('Mockery afeta outros testes além desse');
         $userTest = [
             'name' => 'Felipe',
             'email' => 'felipe.silva@mail.com',
