@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="vendor/autoload.php"
-      colors="true"
-      verbose="false">
+<phpunit
+    bootstrap="vendor/autoload.php"
+    colors="true"
+    verbose="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    stopOnError="false"
+    stopOnFailure="false"
+    stopOnIncomplete="false"
+    stopOnSkipped="false"
+    stopOnRisky="false"
+    beStrictAboutTestsThatDoNotTestAnything="true"
+    beStrictAboutTodoAnnotatedTests="false"
+    >
+
+    <!-- beStrictAboutTestsThatDoNotTestAnything="true" para marcar testes sem asserts como riscos -->
+    <!-- beStrictAboutTodoAnnotatedTests="false" para não marcar @todo como risco -->
   <testsuite name="tests">
       <directory>tests</directory>
   </testsuite>
@@ -12,5 +27,5 @@
       <log type="testdox-html" target="phpunit-testdox.html"/>
       <log type="testdox-text" target="phpunit-testdox.txt"/>
   </logging>
-      -->
+  -->
 </phpunit>

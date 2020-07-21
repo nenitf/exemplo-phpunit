@@ -56,5 +56,7 @@ class CreateUserService1Test extends PHPUnit\Framework\TestCase {
         // fechar definição de overload
         m::close();
     }
+    public function testUseless(){
+    }
 }
 
