@@ -1,13 +1,16 @@
 {
     "scripts": {
-        "test": "php composer-test.php",
-        "test:dox": "php composer-test.php --testdox",
-        "test:log:html": "php composer-test.php --testdox-html testdox/phpunit-testdox.html",
-        "test:log:txt": "php composer-test.php --testdox-text testdox/phpunit-testdox.txt",
-        "test:log:xml": "php composer-test.php --testdox-xml testdox/phpunit-testdox.xml",
-        "test:log:cdu:html": "php composer-test.php --testdox-html testdox/phpunit-testdox-cdu.html --group caso-de-uso",
-        "test:log:cdu:txt": "php composer-test.php --testdox-text testdox/phpunit-testdox-cdu.txt --group caso-de-uso",
-        "test:log:cdu:xml": "php composer-test.php --testdox-xml testdox/phpunit-testdox-cdu.xml --group caso-de-uso"
+        "test": "php composer-test.php --coverage-text",
+        "test:group": "php composer-test.php --coverage-text --group",
+        "test:dox": "php composer-test.php --testdox --coverage-text",
+        "test:dox:group": "php composer-test.php --testdox --coverage-text --group",
+        "test:log:html": "php composer-test.php --testdox-html tests/_reports/testdox/executed.html",
+        "test:log:txt": "php composer-test.php --testdox-text tests/_reports/executed.txt",
+        "test:log:xml": "php composer-test.php --testdox-xml tests/_reports/testdox/executed.xml",
+        "test:log:cdu:html": "php composer-test.php --testdox-html tests/_reports/testdox/casos-de-uso.html --group caso-de-uso",
+        "test:log:cdu:txt": "php composer-test.php --testdox-text tests/_reports/testdox/casos-de-uso.txt --group caso-de-uso",
+        "test:log:cdu:xml": "php composer-test.php --testdox-xml tests/_reports/testdox/casos-de-uso.xml --group caso-de-uso",
+        "test:coverage:php": "php composer-test.php --coverage-php tests/_reports/CodeCoverage.php"
     },
     "autoload": {
         "psr-4":{
