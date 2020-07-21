@@ -12,7 +12,7 @@
     stopOnSkipped="false"
     stopOnRisky="false"
     beStrictAboutTestsThatDoNotTestAnything="true"
-    beStrictAboutTodoAnnotatedTests="false"
+    beStrictAboutTodoAnnotatedTests="true"
     >
 
     <!-- beStrictAboutTestsThatDoNotTestAnything="true" para marcar testes sem asserts como riscos -->
