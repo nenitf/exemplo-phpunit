@@ -104,5 +104,21 @@ class CreateUserService2Test extends PHPUnit\Framework\TestCase {
             $this->assertEquals($emess, 'Email existente');
         }
     }
+
+    /**
+     * @testdox AA 
+     * @dataProvider providerEquals
+     */
+    public function testEqual($a, $b){
+        $this->assertTrue($a === $b);
+    }
+
+    public function providerEquals(){
+        return [
+            'primeiro' => [ 1, 2 ],
+            'segundo' => [ 1, 2 ],
+            'terceiro' => [ 1, 1 ],
+        ];
+    }
 }
 

@@ -31,17 +31,17 @@ composer test:dox
 #composer test:dox:group issue-number # marcado com @ticket
 
 # com log do resultado para um arquivo
-composer test:log:html # cria em testdox/phpunit-testdox.html
-composer test:log:txt # cria em testdox/phpunit-testdox.txt
-composer test:log:xml # cria em testdox/phpunit-testdox.xml
+composer test:log:html # cria em tests/_reports/testdox/phpunit-testdox.html
+composer test:log:txt # cria em tests/_reports/testdox/phpunit-testdox.txt
+composer test:log:xml # cria em tests/_reports/testdox/phpunit-testdox.xml
 
 # com log para os testes de @group caso-de-uso
-composer test:log:cdu:html # cria em testdox/phpunit-testdox-cdu.html
-composer test:log:cdu:txt # cria em testdox/phpunit-testdox-cdu.txt
-composer test:log:cdu:xml # cria em testdox/phpunit-testdox-cdu.xml
+composer test:log:cdu:html # cria em tests/_reports/testdox/casos-de-uso.html
+composer test:log:cdu:txt # cria em tests/_reports/testdox/casos-de-uso.txt
+composer test:log:cdu:xml # cria em tests/_reports/testdox/casos-de-uso.xml
 
 # com coverage para uma  função em PHP para poder ser tratado
-composer test:coverage:php # cria em testdox/phpunit-testdox-cdu.xml
+composer test:coverage:php # cria em tests/_reports/CodeCoverage.php
 ```
 
 ## phpunit
